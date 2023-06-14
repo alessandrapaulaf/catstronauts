@@ -5,6 +5,7 @@ const typeDefs = gql`
     "Get tracks array for homepage grid"
     tracksForHome: [Track!]!
     spaceCats: [SpaceCat]
+    track (id: ID!): Track
   }
 
   type SpaceCat {
@@ -27,6 +28,15 @@ const typeDefs = gql`
     thumbnail: String
     length: Int
     modulesCount: Int
+    description: String
+    numberOfViews: Int
+    modules: [Module!]!
+  }
+
+  type Module {
+    id: ID!
+    title: String!
+    length: Int
   }
 
   "Author of a complete Track or a Module"
